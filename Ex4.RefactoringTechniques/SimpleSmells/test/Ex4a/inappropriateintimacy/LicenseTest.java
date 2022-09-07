@@ -10,6 +10,6 @@ class LicenseTest {
         License license = new License();
         license.addPoints(3);
         Motorist motorist = new Motorist(license, "Smith", "John", "Mr");
-        assertEquals("Mr John Smith, 3 points", license.getSummary());
+        assertEquals("Mr John Smith, 3 points", motorist.getSummary(license));
     }
 }

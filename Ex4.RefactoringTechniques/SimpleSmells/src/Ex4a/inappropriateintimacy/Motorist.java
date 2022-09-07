@@ -11,7 +11,6 @@ public class Motorist {
 
 
 	public Motorist(License license, String surname, String firstName, String title) {
-		license.setMotorist(this);
 		this.license = license;
 		this.surname = surname;
 		this.firstName = firstName;
@@ -32,13 +31,10 @@ public class Motorist {
 	}
 
 
-	// 이건 라이센스로 옮기기
-	public RiskFactor getRiskFactor() {
-		if(license.getPoints() > 3)
-			return RiskFactor.HIGH_RISK;
-		if(license.getPoints() > 0)
-			return RiskFactor.MODERATE_RISK;
-		return RiskFactor.LOW_RISK;
+	// 이건 모터로 옮기기
+	public String getSummary(License license) {
+		return getTitle() + " " + getFirstName()
+		+ " " + getSurname() + ", " + Integer.toString(license.getPoints())
+		+ " points";
 	}
-
 }

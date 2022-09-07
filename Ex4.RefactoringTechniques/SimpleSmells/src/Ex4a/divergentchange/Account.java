@@ -30,8 +30,7 @@ public class Account {
 	// XML을 만드는 부분을 새로운 class로 추출
 
 	public String toXml() {
-		return "<account><id>" + Integer.toString(getAccountNumber()) + "</id>" +
-				"<balance>" + Double.toString(getBalance()) + "</balance></account>";
+		return new XML(getAccountNumber()).toXml();
 	}
 
 }

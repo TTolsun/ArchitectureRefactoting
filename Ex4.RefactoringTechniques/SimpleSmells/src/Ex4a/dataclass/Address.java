@@ -32,5 +32,7 @@ public class Address {
 
 	}
 
-
+	public String getAddressString() {
+		return getCity() + ", " + getPostcode() + ", " + getCountry();
+	}
 }

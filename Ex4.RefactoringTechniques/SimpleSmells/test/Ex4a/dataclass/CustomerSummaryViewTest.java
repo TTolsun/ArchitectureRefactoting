@@ -17,6 +17,6 @@ class CustomerSummaryViewTest {
         address.setCountry("Korea");
         customer.setAddress(address);
         CustomerSummaryView order = new CustomerSummaryView(customer);
-        assertEquals("Mr John Smith, Ansan, 15588, Korea", order.getCustomerSummary());
+        assertEquals("Mr John Smith, Ansan, 15588, Korea", order.customer.getCustomerSummary());
     }
 }

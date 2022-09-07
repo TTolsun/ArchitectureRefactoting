@@ -28,11 +28,17 @@ public class Invoice {
 		}
 
 		// 얘가 커스터모 간 다음에 어드레스 간다음에 계속 들어감. 이걸 다 짤라서 운영해보는 형태로
-		if(!customer.getAddress().getCountry().isInEurope()){
+		return getInvoiceTotal(invoiceTotal);
+	}
+
+	private double getInvoiceTotal(double invoiceTotal) {
+		if(!isInEurope()){
 			invoiceTotal += SHIPPING_COST_OUTSIDE_EU;
 		}
 		return invoiceTotal;
 	}
 
-
+	private boolean isInEurope() {
+		return customer.getAddress().getCountry().isInEurope();
+	}
 }
