@@ -39,4 +39,14 @@ public class Motorist {
 		return calDateOfBirth;
 	}
 
+	public RiskFactor calculateMotoristRisk() {
+
+		if(getPointsOnLicense() > 3 || getAge() < 25)
+			return RiskFactor.HIGH_RISK;
+
+		if(getPointsOnLicense() > 0)
+			return RiskFactor.MODERATE_RISK;
+
+		return RiskFactor.LOW_RISK;
+	}
 }

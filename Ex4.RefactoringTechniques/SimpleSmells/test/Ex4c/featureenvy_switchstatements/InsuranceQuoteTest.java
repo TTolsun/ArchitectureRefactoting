@@ -49,7 +49,7 @@ class InsuranceQuoteTest {
     }
 
     private RiskFactor calculateMotoristRisk(String dateOfBirth, int pointsOnLicense) throws ParseException {
-        return buildInsuranceQuote(dateOfBirth, pointsOnLicense).calculateMotoristRisk();
+        return buildInsuranceQuote(dateOfBirth, pointsOnLicense).motorist.calculateMotoristRisk();
     }
 
 

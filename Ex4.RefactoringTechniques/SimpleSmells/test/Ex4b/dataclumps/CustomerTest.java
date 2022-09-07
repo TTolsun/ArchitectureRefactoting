@@ -8,11 +8,12 @@ class CustomerTest {
     @Test
     public void addressSummaryIncludesHouseStreetCityPostCodeCountry() throws Exception {
         Customer customer = new Customer();
-        customer.setHouse("55");
-        customer.setStreet("Hanyang-ro");
-        customer.setCity("Ansan");
-        customer.setPostcode("15588");
-        customer.setCountry("Korea");
+        Address address = new Address();
+        address.setHouse("55");
+        address.setStreet("Hanyang-ro");
+        address.setCity("Ansan");
+        address.setPostcode("15588");
+        address.setCountry("Korea");
         assertEquals("55, Hanyang-ro, Ansan, 15588, Korea", customer.getAddressSummary());
     }
 }

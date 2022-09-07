@@ -2,37 +2,30 @@ package Ex4c.featureenvy_switchstatements;
 
 public class InsuranceQuote {
 
-	private Motorist motorist;
+	Motorist motorist;
 
 	public InsuranceQuote(Motorist motorist) {
 		this.motorist = motorist;
 	}
 
-	public RiskFactor calculateMotoristRisk() {
-
-		if(motorist.getPointsOnLicense() > 3 || motorist.getAge() < 25)
-			return RiskFactor.HIGH_RISK;
-
-		if(motorist.getPointsOnLicense() > 0)
-			return RiskFactor.MODERATE_RISK;
-
-		return RiskFactor.LOW_RISK;
+	public double calculateInsurancePremium(double insuranceValue) {
+		RiskFactor riskFactor = motorist.calculateMotoristRisk();
+		return getCalRisk(riskFactor).calculateRate(insuranceValue);
 	}
 
-	public double calculateInsurancePremium(double insuranceValue) {
-		RiskFactor riskFactor = calculateMotoristRisk();
-
+	private static CalRisk getCalRisk(RiskFactor riskFactor) {
+		CalRisk calRisk;
 		switch(riskFactor){
 		case LOW_RISK :
-			return insuranceValue * 0.02;
-		case MODERATE_RISK :
-			return insuranceValue * 0.04;
+			calRisk = new LowRisk();
+			break;
+		case MODERATE_RISK:
+			calRisk = new ModerateRisk();
+			break;
 		default :
-			return insuranceValue * 0.06;
+			calRisk = new NormalRisk();
+			break;
 		}
-
+		return calRisk;
 	}
-
-
-
 }
